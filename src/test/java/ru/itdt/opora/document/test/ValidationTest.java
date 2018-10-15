@@ -1,4 +1,4 @@
-package org.ch.test;
+package ru.itdt.opora.document.test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -30,7 +30,7 @@ public class ValidationTest {
 		}
 		ValidationResult result = validator.validate(new Document(fields));
 		assertTrue(result.isValid());
-		assertEquals("Строки с сообщениями не совпали", "", result.getMessage());
+		assertEquals("РЎС‚СЂРѕРєРё СЃ СЃРѕРѕР±С‰РµРЅРёСЏРјРё РЅРµ СЃРѕРІРїР°Р»Рё", "", result.getMessage());
 	}
 
 	@Test
@@ -51,8 +51,8 @@ public class ValidationTest {
 						new InvalidData(PhoneValidator.PHONE_NUMBER, 4, "8-9326-216262"), },
 				res.getInvalidData().toArray(new InvalidData[0]));
 
-		assertEquals("Строки с сообщениями не совпали",
-				"Внимание! Некорректные значения в строках: 0 (PhoneNumber - \"8-(932)3216242\"), 1 (PhoneNumber - \"8932)3216242\"), 4 (PhoneNumber - \"8-9326-216262\"),",
+		assertEquals("РЎС‚СЂРѕРєРё СЃ СЃРѕРѕР±С‰РµРЅРёСЏРјРё РЅРµ СЃРѕРІРїР°Р»Рё",
+				"Р’РЅРёРјР°РЅРёРµ! РќРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РІ СЃС‚СЂРѕРєР°С…: 0 (PhoneNumber - \"8-(932)3216242\"), 1 (PhoneNumber - \"8932)3216242\"), 4 (PhoneNumber - \"8-9326-216262\"),",
 				res.getMessage());
 	}
 

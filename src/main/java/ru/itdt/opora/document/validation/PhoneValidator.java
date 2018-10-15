@@ -12,12 +12,12 @@ import ru.itdt.opora.document.validation.DocumentValidator.ValidationResult.Inva
 
 /**
  * 
- * Проверяет значения поля PhoneNumber в документе на соответствие шаблону
- * Допусткается наличие дефисов и скобок в форматах:
+ * РџСЂРѕРІРµСЂСЏРµС‚ Р·РЅР°С‡РµРЅРёСЏ РїРѕР»СЏ PhoneNumber РІ РґРѕРєСѓРјРµРЅС‚Рµ РЅР° СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ С€Р°Р±Р»РѕРЅСѓ
+ * Р”РѕРїСѓСЃС‚РєР°РµС‚СЃСЏ РЅР°Р»РёС‡РёРµ РґРµС„РёСЃРѕРІ Рё СЃРєРѕР±РѕРє РІ С„РѕСЂРјР°С‚Р°С…:
  * <ul>
- * <li>8-xxx-xxx-xx-xx (при этом дефисы опциональны на всех позициях)</li>
- * <li>8(xxx)-xxx-xx-xx (дефисы тоже опциональны на указанных позициях, скобки
- * должны присутствовать с обеих сторон)</li>
+ * <li>8-xxx-xxx-xx-xx (РїСЂРё СЌС‚РѕРј РґРµС„РёСЃС‹ РѕРїС†РёРѕРЅР°Р»СЊРЅС‹ РЅР° РІСЃРµС… РїРѕР·РёС†РёСЏС…)</li>
+ * <li>8(xxx)-xxx-xx-xx (РґРµС„РёСЃС‹ С‚РѕР¶Рµ РѕРїС†РёРѕРЅР°Р»СЊРЅС‹ РЅР° СѓРєР°Р·Р°РЅРЅС‹С… РїРѕР·РёС†РёСЏС…, СЃРєРѕР±РєРё
+ * РґРѕР»Р¶РЅС‹ РїСЂРёСЃСѓС‚СЃС‚РІРѕРІР°С‚СЊ СЃ РѕР±РµРёС… СЃС‚РѕСЂРѕРЅ)</li>
  * </ul>
  */
 public class PhoneValidator implements DocumentValidator {
@@ -33,7 +33,7 @@ public class PhoneValidator implements DocumentValidator {
 			int index = 0;
 			for (FieldSet table : doc.getFieldSet(FIELD_SET)) {
 				Object obj = table.getField(PHONE_NUMBER);
-				Objects.requireNonNull(obj, "Поле \"" + PHONE_NUMBER + "\" не должно быть равно null");
+				Objects.requireNonNull(obj, "РџРѕР»Рµ \"" + PHONE_NUMBER + "\" РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ СЂР°РІРЅРѕ null");
 				String phoneNumber = table.getField(PHONE_NUMBER).toString();
 				Matcher match = PATTERN.matcher(phoneNumber);
 				if (!match.matches()) {
